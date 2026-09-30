@@ -1,10 +1,1 @@
-{
-  "name":"Daniel's Adventure",
-  "short_name":"Adventure",
-  "start_url":"./",
-  "display":"standalone",
-  "background_color":"#0f172a",
-  "theme_color":"#16213e",
-  "description":"Choice Power adventure game",
-  "icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
-}
+{"name":"Daniel's Adventure — 23 Rules","short_name":"23 Rules","start_url":"./","display":"standalone","background_color":"#10182d","theme_color":"#10182d","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
