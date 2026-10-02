@@ -1,9 +1,9 @@
 {
-  "name": "Daniel's Adventure v7",
+  "name": "Daniel's Adventure",
   "short_name": "Daniel Adventure",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
-  "background_color": "#e9f6ff",
+  "background_color": "#dff4ff",
   "theme_color": "#1268b3",
   "icons": [
     {
