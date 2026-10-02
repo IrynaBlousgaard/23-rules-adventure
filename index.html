@@ -1,104 +1,328 @@
-<!doctype html><html lang="da"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0f2236"><link rel="manifest" href="manifest.json"><title>Daniel's Adventure v5 — Virkelige Eventyr</title><style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:linear-gradient(#0f2236,#16324a 50%,#0d1d2b);color:#f8fbff;min-height:100vh}.app{max-width:980px;margin:auto;padding:18px 16px 90px}.top{display:flex;justify-content:space-between;align-items:center}.brand{display:flex;gap:12px;align-items:center}.logo{font-size:34px}.sub,.tiny{color:#b9c9d9;font-size:13px}.iconbtn,.btn{border:0;border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer}.iconbtn{background:#263e56;color:white}.hero{margin:18px 0;background:linear-gradient(135deg,#1f5370,#704c83);border:1px solid #58738e;border-radius:24px;padding:20px;box-shadow:0 16px 40px #0005}.hero h2{margin:3px 0 8px}.bar{height:13px;background:#0c1c2b;border-radius:20px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#72ddff,#ffd761);border-radius:20px}.tabs{display:flex;gap:8px;overflow:auto;padding-bottom:8px}.tab{white-space:nowrap;background:#1e3249;color:#e4efff;border:1px solid #3c5672}.tab.active{background:#f6c95d;color:#17213a}.panel{display:none}.panel.active{display:block}.btn.primary{background:#f6c95d;color:#17213a}.btn.secondary{background:#29445f;color:#fff}.btn.danger{background:#7d3140;color:#fff}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.card{background:#172b40;border:1px solid #38536e;border-radius:20px;padding:17px}.mode{cursor:pointer}.mode:hover{transform:translateY(-2px)}.power{display:inline-block;background:#27425e;border:1px solid #4f708f;border-radius:999px;padding:8px 11px;margin:4px;font-size:13px}.power.locked{opacity:.35}.badge{display:inline-flex;align-items:center;gap:8px;background:#213a52;border-radius:14px;padding:10px;margin:5px}.badge.locked{opacity:.3}.field{margin:10px 0}.field input,.field textarea{width:100%;padding:12px;border-radius:12px;border:1px solid #4a647d;background:#101f2f;color:white}.row{display:flex;gap:8px;flex-wrap:wrap}.sheet{position:fixed;inset:0;background:#0009;display:none;align-items:flex-end;z-index:20}.sheet.open{display:flex}.sheetin{width:100%;max-width:760px;margin:auto;background:#172b40;border-radius:25px 25px 0 0;padding:22px;max-height:88vh;overflow:auto}.close{float:right}.choice{display:block;width:100%;text-align:left;margin:9px 0;background:#243f59;color:white;border:1px solid #476886;border-radius:15px;padding:14px;font-weight:700}.call{background:#233f5a;border-left:4px solid #f6c95d;padding:14px;border-radius:12px;margin:12px 0}.scenario{font-size:18px;line-height:1.45}.bigpower{font-size:34px}.success{background:#183f3a}.mapTitle{font-size:26px;margin-bottom:3px}.mapSub{color:#bfd0df;margin-top:0}.questRibbon{background:linear-gradient(90deg,#f6c95d,#ff9e62);color:#17213a;border-radius:18px;padding:14px 16px;margin:14px 0;font-weight:900}.toolboxDock{position:sticky;bottom:10px;background:#102235e8;backdrop-filter:blur(12px);border:1px solid #456581;border-radius:20px;padding:10px;margin-top:18px;z-index:5}.legend{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.legend span{background:#ffffff12;border-radius:999px;padding:6px 9px;font-size:11px}.adventureMap{position:relative;width:100%;aspect-ratio:10/19;min-height:1120px;max-height:1750px;border:1px solid #58738e;border-radius:26px;overflow:hidden;background:#77b8cf;box-shadow:0 18px 40px #0005}.adventureMap svg{position:absolute;inset:0;width:100%;height:100%;display:block}.landmark{position:absolute;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:18px;border:3px solid #fff8;background:linear-gradient(145deg,#244862,#17384e);color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 8px 18px #0006;cursor:pointer;z-index:3;font-weight:900}.landmark .em{font-size:25px;line-height:1}.landmark .rn{font-size:10px;margin-top:3px}.landmark.locked{filter:grayscale(1);opacity:.45;cursor:default}.landmark.done{background:linear-gradient(145deg,#1e6b54,#145041);border-color:#9bf2c4}.landmark.current{outline:5px solid #ffe168;box-shadow:0 0 0 8px #ffe16844,0 10px 22px #0007;animation:pulse 1.7s infinite}.landmark.boss{background:linear-gradient(145deg,#7e2e42,#4b1c2b);border-color:#ff9f91;width:72px;height:72px}.danielMarker{position:absolute;transform:translate(-50%,-100%);z-index:4;background:#f6c95d;color:#17213a;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;box-shadow:0 8px 18px #0005}.zoneLabel{position:absolute;z-index:2;background:#102235cc;border:1px solid #ffffff33;border-radius:14px;padding:8px 11px;font-weight:900;font-size:13px;backdrop-filter:blur(4px)}.mapNote{position:absolute;z-index:2;font-size:11px;color:#eef7ff;background:#0005;border-radius:10px;padding:5px 8px}.landmark:hover{transform:translate(-50%,-54%)}@keyframes pulse{0%,100%{box-shadow:0 0 0 8px #ffe16833,0 10px 22px #0007}50%{box-shadow:0 0 0 14px #ffe16818,0 10px 22px #0007}}@media(prefers-reduced-motion:reduce){.landmark.current{animation:none}}@media(max-width:650px){.adventureMap{min-height:1040px}.landmark{width:56px;height:56px;border-radius:16px}.landmark.boss{width:62px;height:62px}.landmark .em{font-size:22px}.zoneLabel{font-size:11px}.mapNote{display:none}}@media(min-width:700px){.sheet{align-items:center}.sheetin{border-radius:25px}.app{padding-top:26px}}
-</style></head><body><div class="app"><div class="top"><div class="brand"><div class="logo">🧭</div><div><h1 style="font-size:21px;margin:0">Daniel’s Adventure</h1><div class="sub">De 23 regler</div></div></div><button class="iconbtn" onclick="openParent()">🔐</button></div>
-<div class="hero"><div class="sub" id="levelName"></div><h2>⚡ Choice Power <span id="xpText"></span></h2><div class="bar"><div class="fill" id="xpBar"></div></div><p id="heroText"></p><button class="btn primary" onclick="continueJourney()">Fortsæt eventyret →</button></div>
-<div class="tabs"><button class="btn tab active" onclick="show('journey',this)">🗺️ Kort</button><button class="btn tab" onclick="show('toolbox',this)">🧰 Kræfter</button><button class="btn tab" onclick="show('missions',this)">💬 Noget skete</button><button class="btn tab" onclick="show('badges',this)">🏅 Badges</button><button class="btn tab" onclick="show('checkin',this)">📅 I dag</button></div>
-<section id="journey" class="panel active"><div class="mapTitle">🗺️ Vejen til Choice Castle</div><p class="mapSub">Følg stien gennem fem områder. Hver regel giver dig en ny kraft.</p><div class="legend"><span>🟡 Din næste mission</span><span>✅ Klaret</span><span>🔒 Låst</span><span>👹 Boss</span></div><div class="questRibbon" id="questRibbon"></div><div id="map" class="adventureMap"></div><div class="toolboxDock"><b>🧰 Mine nyeste kræfter</b><div id="quickPowers"></div></div></section>
-<section id="toolbox" class="panel"><h2>🧰 Mine kræfter</h2><p class="sub">Når du lærer en regel, får du en kraft, du kan bruge igen.</p><div id="powers"></div></section>
-<section id="missions" class="panel"><h2>💬 Noget skete...</h2><p class="sub">Vælg det, der ligner din situation. Appen hjælper dig med at stoppe, finde ud af hvad der sker og vælge dit næste move.</p><div id="missionCards" class="cards"></div></section>
-<section id="badges" class="panel"><h2>🏅 Badge-kisten</h2><div id="badgeList"></div></section>
-<section id="checkin" class="panel"><h2>📅 Hvordan gik det i dag?</h2><div class="card"><p>Skriv én ting, du opdagede, prøvede eller valgte selv.</p><div class="field"><textarea id="checkText" rows="4" placeholder="For eksempel: Jeg stoppede op før næste video..."></textarea></div><button class="btn primary" onclick="saveCheckin()">Gem +5 XP</button></div><div id="checkHistory"></div></section></div>
-<div class="sheet" id="sheet" onclick="if(event.target===this)closeSheet()"><div class="sheetin"><button class="iconbtn close" onclick="closeSheet()">✕</button><div id="sheetBody"></div></div></div>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>FoodScanner v0.7</title>
+<meta name="theme-color" content="#2f7d57">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+  :root{
+    --bg:#f7f8f6; --card:#ffffff; --text:#1f2a24; --muted:#6d766f; --line:#e6e9e5;
+    --accent:#2f7d57; --accent2:#e8f3ed; --danger:#a64040; --shadow:0 8px 24px rgba(30,50,40,.08);
+  }
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+  button,input,select{font:inherit} button{cursor:pointer}
+  .app{max-width:520px;margin:0 auto;min-height:100vh;padding:18px 16px 92px}
+  .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{font-size:26px;font-weight:800}.sub{font-size:13px;color:var(--muted)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:var(--shadow);margin-bottom:14px}
+  .hero{padding:18px}.hero h2{margin:0 0 6px;font-size:22px}.hero p{margin:0;color:var(--muted)}
+  .primary{width:100%;border:0;border-radius:16px;background:var(--accent);color:#fff;padding:15px 16px;font-weight:700;font-size:16px}
+  .secondary{width:100%;border:1px solid var(--line);border-radius:16px;background:#fff;color:var(--text);padding:14px 16px;font-weight:700}
+  .ghost{border:0;background:transparent;color:var(--accent);font-weight:700;padding:8px}
+  .danger{color:var(--danger)}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quick{min-height:92px;text-align:left}.quick b{display:block;margin-top:8px}.quick span{color:var(--muted);font-size:13px}
+  .sectionTitle{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 10px}.sectionTitle h3{margin:0;font-size:18px}
+  .total{display:grid;grid-template-columns:1.2fr .8fr;gap:10px;align-items:center}.kcal{font-size:34px;font-weight:800}.muted{color:var(--muted)}
+  .macro{display:flex;justify-content:space-between;gap:8px;margin-top:12px}.pill{flex:1;background:#f3f5f2;border-radius:12px;padding:10px;text-align:center;font-size:12px}.pill b{display:block;font-size:15px;margin-top:2px}
+  .list{display:grid;gap:8px}.row{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.row:last-child{border-bottom:0}.row b{display:block}.row small{color:var(--muted)}
+  .screen{display:none}.screen.active{display:block}
+  .back{display:inline-flex;align-items:center;gap:5px;margin-bottom:10px}
+  label{display:block;font-size:13px;font-weight:700;margin:12px 0 6px}.field{width:100%;padding:13px;border:1px solid var(--line);border-radius:13px;background:#fff}.fields2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ingredient{display:grid;grid-template-columns:1fr 86px 34px;gap:8px;align-items:center;margin-bottom:8px}.ingredient button{border:0;background:#fff;color:var(--danger);font-size:20px}
+  .photoBox{border:1.5px dashed #cfd6d0;border-radius:18px;padding:20px;text-align:center;background:#fbfcfb}.photoBox img{max-width:100%;border-radius:14px;margin-top:12px;display:none}.scanPhoto{width:100%;max-height:260px;object-fit:cover;border-radius:14px;margin:10px 0}.detected{background:#f7f9f7;border:1px solid var(--line);border-radius:14px;padding:11px;margin-top:8px}.detected b{display:block}.detected small{color:var(--muted)}
+  .nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line)}.navin{max-width:520px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);padding:8px 12px calc(8px + env(safe-area-inset-bottom))}.nav button{border:0;background:transparent;padding:8px;color:var(--muted);font-size:12px}.nav button b{display:block;font-size:18px;margin-bottom:2px}.nav button.active{color:var(--accent)}
+  .empty{padding:18px;text-align:center;color:var(--muted)}
+  .recipeCard{display:flex;justify-content:space-between;gap:12px;align-items:center}.recipeCard .meta{font-size:13px;color:var(--muted);margin-top:4px}
+  .tag{font-size:12px;background:var(--accent2);color:var(--accent);padding:5px 8px;border-radius:999px;font-weight:700}
+  .hidden{display:none!important}
+  .toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#1f2a24;color:#fff;padding:10px 14px;border-radius:12px;font-size:13px;opacity:0;pointer-events:none;transition:.2s}.toast.show{opacity:1}
+  .brandRow{display:flex;align-items:center;gap:10px}.appIcon{width:42px;height:42px;border-radius:12px;box-shadow:0 4px 12px rgba(47,125,87,.18)}
+  .progressTrack{height:12px;background:#edf0ed;border-radius:999px;overflow:hidden}.progressFill{height:100%;background:var(--accent);width:0%;transition:.25s}.progressMeta{display:flex;justify-content:space-between;gap:12px;margin-top:8px;font-size:13px}.goalValue{font-size:30px;font-weight:800}.miniStat{background:#f7f9f7;border:1px solid var(--line);border-radius:14px;padding:12px}.miniStat b{font-size:20px}.spinnerWrap{display:none;align-items:center;justify-content:center;gap:10px;padding:14px 4px;color:var(--muted);font-size:13px}.spinnerWrap.show{display:flex}.spinner{width:22px;height:22px;border:3px solid #dfe8e2;border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+  .macroTitle{font-size:13px;font-weight:800;margin-top:12px;margin-bottom:6px}.weightChart{width:100%;height:150px;display:block}.weightPoint{fill:var(--accent)}.weightLine{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.weightGrid{stroke:#e8ece8;stroke-width:1}
+
+  /* v0.7 dashboard + diary */
+  .homeDate{font-size:13px;color:var(--muted);margin:-6px 2px 12px}
+  .dashboard{padding:16px}.dashTop{display:grid;grid-template-columns:128px 1fr;gap:16px;align-items:center}
+  .calRing{--p:0;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--accent) calc(var(--p)*1%),#edf0ed 0);position:relative}.calRing:after{content:'';position:absolute;inset:12px;background:#fff;border-radius:50%}.calRingInner{position:relative;z-index:1;text-align:center}.calRingInner b{font-size:27px;display:block}.calRingInner span{font-size:11px;color:var(--muted)}
+  .dashRemaining b{font-size:25px;display:block}.dashRemaining span{font-size:12px;color:var(--muted)}
+  .summaryTiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.summaryTile{border:1px solid var(--line);border-radius:16px;padding:12px;background:#fbfcfb}.summaryTile .ico{font-size:18px}.summaryTile b{display:block;font-size:20px;margin-top:5px}.summaryTile small{color:var(--muted)}
+  .homeMeal{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}.homeMeal:last-child{border-bottom:0}.homeMeal b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mealThumb,.historyThumb{width:58px;height:58px;border-radius:14px;object-fit:cover;background:#edf2ee;display:none}.thumbWrap{width:58px;height:58px;border-radius:14px;background:#eef3ef;position:relative;overflow:hidden;display:grid;place-items:center;font-size:24px}.thumbWrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+  .historyHeader{display:flex;justify-content:space-between;align-items:end;margin:18px 2px 8px}.historyHeader h3{margin:0}.historyDayTotal{font-size:13px;color:var(--accent);font-weight:800}.historyGroup{margin-bottom:18px}
+  details.historyMeal{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);margin-bottom:9px;overflow:hidden}details.historyMeal summary{list-style:none;cursor:pointer;padding:11px 12px}details.historyMeal summary::-webkit-details-marker{display:none}.historySummary{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:11px;align-items:center}.historySummary .name{font-weight:800;line-height:1.25}.historySummary .meta{font-size:12px;color:var(--muted);margin-top:4px}.historyKcal{text-align:right;font-weight:800;white-space:nowrap}.chev{display:block;color:var(--muted);font-size:16px;margin-top:2px;transition:.2s}details[open] .chev{transform:rotate(90deg)}.historyBody{border-top:1px solid var(--line);padding:12px}.historyBody .fullPhoto{width:100%;max-height:340px;object-fit:cover;border-radius:14px;margin-bottom:10px;display:none}.historyMacros{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0}.historyMacro{background:#f6f8f6;border-radius:11px;padding:8px;text-align:center;font-size:11px;color:var(--muted)}.historyMacro b{display:block;color:var(--text);font-size:14px;margin-top:2px}.historyDetected{padding:9px 0;border-bottom:1px solid var(--line)}.historyDetected:last-child{border-bottom:0}.historyDetected b{display:block;font-size:14px}.historyDetected small{color:var(--muted);display:block;margin-top:2px;line-height:1.35}
+  .diaryNote{font-size:12px;color:var(--muted);margin-top:-5px;margin-bottom:14px}
+  @media(max-width:380px){.dashTop{grid-template-columns:104px 1fr}.calRing{width:100px;height:100px}.historySummary{grid-template-columns:56px minmax(0,1fr) auto}.thumbWrap{width:54px;height:54px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><div class="brandRow"><img src="icon-192.png" class="appIcon" alt="FoodScanner icon"><div><div class="brand">FoodScanner</div><div class="sub">Simple meal tracking</div></div></div></div>
+
+  <section id="home" class="screen active">
+    <div class="homeDate" id="homeDate"></div>
+    <div class="card dashboard">
+      <div class="dashTop">
+        <div class="calRing" id="homeRing"><div class="calRingInner"><b id="homeKcalNum">0</b><span id="homeTargetShort">kcal today</span></div></div>
+        <div class="dashRemaining"><div class="muted">Calories</div><b id="homeRemaining">—</b><span id="homeGoalText">Set your daily target</span></div>
+      </div>
+      <div class="macroTitle">КБЖУ / Macros</div>
+      <div class="macro"><div class="pill">Protein · Б<b id="homeP">0 g</b></div><div class="pill">Fat · Ж<b id="homeF">0 g</b></div><div class="pill">Carbs · У<b id="homeC">0 g</b></div></div>
+      <div class="summaryTiles">
+        <button class="summaryTile" onclick="showScreen('track')" style="text-align:left"><span class="ico">⚖️</span><small>Weight</small><b id="homeWeight">—</b><small id="homeWeightTrend">Add weight</small></button>
+        <button class="summaryTile" onclick="showScreen('track')" style="text-align:left"><span class="ico">🔥</span><small>Daily target</small><b id="homeTargetTile">—</b><small>Set / change target</small></button>
+      </div>
+      <div style="height:12px"></div><button class="primary" onclick="showScreen('scan')">📷 Add a meal</button>
+    </div>
+    <div class="sectionTitle"><h3>Today's meals</h3><button class="ghost" onclick="showScreen('today')">View diary</button></div>
+    <div class="card" id="homeTodayMeals"><div class="empty">No meals yet.</div></div>
+    <div class="grid2">
+      <button class="secondary quick" onclick="showScreen('recipeForm');resetRecipeForm()">🍳<b>Add a recipe</b><span>Save homemade dishes</span></button>
+      <button class="secondary quick" onclick="showScreen('recipes')">📖<b>My recipes</b><span>Use again anytime</span></button>
+    </div>
+    <div class="muted" id="savedStatus" style="font-size:12px;text-align:center;margin-top:10px"></div>
+  </section>
+
+  <section id="scan" class="screen">
+    <button class="ghost back" onclick="showScreen('home')">← Back</button>
+    <div class="card">
+      <h2 style="margin-top:0">Scan food</h2>
+      <div class="photoBox">
+        <div style="font-weight:700;margin-bottom:10px">Add a meal photo</div>
+        <div class="grid2">
+          <button class="secondary" type="button" onclick="document.getElementById('cameraPhoto').click()">📷 Take photo</button>
+          <button class="secondary" type="button" onclick="document.getElementById('galleryPhoto').click()">🖼️ Choose photo</button>
+        </div>
+        <input id="cameraPhoto" type="file" accept="image/*" capture="environment" class="hidden" onchange="previewPhoto(event)">
+        <input id="galleryPhoto" type="file" accept="image/*" class="hidden" onchange="previewPhoto(event)">
+        <img id="preview" alt="Meal preview">
+      </div>
+      <label>Plate size</label>
+      <select id="plateSize" class="field">
+        <option value="small">Small plate · about 20 cm</option>
+        <option value="medium" selected>Medium plate · about 25 cm</option>
+        <option value="large">Large plate · about 30 cm</option>
+        <option value="bowl">Bowl</option>
+        <option value="unknown">Not sure</option>
+      </select>
+      <div class="muted" style="font-size:12px;margin-top:6px">Plate size can help future AI estimate portion size more accurately.</div>
+      <div style="height:12px"></div>
+      <button class="primary" id="analyzeBtn" onclick="analyzeMeal()">Analyze meal</button>
+      <div id="spinnerWrap" class="spinnerWrap"><div class="spinner"></div><span>Analyzing your meal…</span></div>
+      <div id="analysisStatus" class="muted" style="font-size:12px;margin-top:8px;text-align:center"></div>
+      <div id="scanResult" class="hidden" style="margin-top:16px">
+        <div class="row"><div><b id="scanMealName">Detected meal</b><small id="scanConfidence"></small></div><span class="tag">AI estimate</span></div>
+        <div id="detectedList"></div>
+        <div class="row" style="margin-top:12px"><div><b>Estimated total</b><small id="scanPlateInfo"></small></div><div><b id="scanTotalKcal">0 kcal</b></div></div>
+        <div class="macroTitle">КБЖУ / Macros</div>
+        <div class="macro"><div class="pill">Protein · Б<b id="scanP">0 g</b></div><div class="pill">Fat · Ж<b id="scanF">0 g</b></div><div class="pill">Carbs · У<b id="scanC">0 g</b></div></div>
+        <div style="height:10px"></div>
+        <button class="secondary" onclick="toggleAnalysisEdit()">✏️ Edit detected foods</button>
+        <div id="analysisEdit" class="hidden" style="margin-top:10px"></div>
+        <div style="height:8px"></div>
+        <button class="primary" onclick="saveAnalyzedMeal()">Save scan to today</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="recipes" class="screen">
+    <div class="sectionTitle" style="margin-top:0"><button class="ghost back" onclick="showScreen('home')">← Back</button><button class="ghost" onclick="showScreen('recipeForm');resetRecipeForm()">+ New</button></div>
+    <h2>My recipes</h2>
+    <div id="recipeList" class="list"></div>
+  </section>
+
+  <section id="recipeForm" class="screen">
+    <button class="ghost back" onclick="showScreen('recipes')">← Back</button>
+    <div class="card">
+      <h2 style="margin-top:0">Add a recipe</h2>
+      <label>Recipe name</label><input id="recipeName" class="field" placeholder="e.g. Chicken curry">
+      <div class="fields2"><div><label>Servings</label><input id="servings" type="number" min="1" value="4" class="field"></div><div><label>Cooked weight (optional)</label><input id="cookedWeight" type="number" min="0" class="field" placeholder="grams"></div></div>
+      <div class="sectionTitle"><h3>Ingredients</h3><button class="ghost" onclick="addIngredient()">+ Add</button></div>
+      <div id="ingredients"></div>
+      <div class="muted" style="font-size:12px;margin-top:6px">For v0.1, enter calories and macros for each ingredient manually. Automatic food database lookup can be connected next.</div>
+      <div style="height:14px"></div>
+      <button class="primary" onclick="saveRecipe()">Save recipe</button>
+    </div>
+  </section>
+
+  <section id="recipeView" class="screen">
+    <button class="ghost back" onclick="showScreen('recipes')">← Back</button>
+    <div id="recipeViewContent"></div>
+  </section>
+
+
+  <section id="track" class="screen">
+    <button class="ghost back" onclick="showScreen('home')">← Back</button>
+    <h2>Daily tracking</h2>
+    <div class="card">
+      <div class="muted">Today's calories</div>
+      <div class="goalValue"><span id="trackConsumed">0</span> <span style="font-size:16px;font-weight:600">/ <span id="trackTarget">—</span> kcal</span></div>
+      <div style="height:10px"></div>
+      <div class="progressTrack"><div class="progressFill" id="trackGoalFill"></div></div>
+      <div class="progressMeta"><span id="trackRemaining">Set a target below</span><span id="trackPercent"></span></div>
+      <label>Daily calorie target</label>
+      <div class="fields2"><input id="calorieTarget" class="field" type="number" min="0" step="50" placeholder="e.g. 1800"><button class="secondary" onclick="saveCalorieTarget()">Save target</button></div>
+    </div>
+    <div class="card">
+      <div class="sectionTitle" style="margin-top:0"><h3>Weight</h3><span class="tag" id="currentWeightTag">No entries</span></div>
+      <div class="fields2"><div><label>Date</label><input id="weightDate" class="field" type="date"></div><div><label>Weight (kg)</label><input id="weightValue" class="field" type="number" min="20" max="400" step="0.1" placeholder="e.g. 64.2"></div></div>
+      <div style="height:10px"></div><button class="secondary" onclick="addWeightEntry()">+ Add weight</button>
+      <div id="weightChartBox" style="margin-top:14px"></div>
+      <div id="weightList" class="list" style="margin-top:10px"></div>
+    </div>
+  </section>
+
+  <section id="today" class="screen">
+    <div class="sectionTitle" style="margin-top:0"><h2 style="margin:0">Meal history</h2><button class="ghost" onclick="showScreen('track')">Tracking</button></div>
+    <div class="diaryNote">Tap a meal to open the photo, detected foods and КБЖУ details.</div>
+    <div id="todayList"></div>
+    <div class="card" style="margin-top:14px">
+      <b>Keep a backup</b>
+      <div class="muted" style="font-size:13px;margin:5px 0 12px">Meals, recipes, tracking data and saved scan photos can be included in a backup.</div>
+      <div class="grid2">
+        <button class="secondary" onclick="exportBackup()">Export backup</button>
+        <button class="secondary" onclick="document.getElementById('backupFile').click()">Import backup</button>
+      </div>
+      <input id="backupFile" type="file" accept="application/json,.json" class="hidden" onchange="importBackup(event)">
+    </div>
+  </section>
+</div>
+
+<div class="nav"><div class="navin" style="grid-template-columns:repeat(4,1fr)">
+  <button id="navHome" class="active" onclick="showScreen('home')"><b>⌂</b>Home</button>
+  <button id="navScan" onclick="showScreen('scan')"><b>📷</b>Scan</button>
+  <button id="navDiary" onclick="showScreen('today')"><b>▤</b>Diary</button>
+  <button id="navRecipes" onclick="showScreen('recipes')"><b>🍳</b>Recipes</button>
+</div></div>
+<div id="toast" class="toast"></div>
+
 <script>
-const rules=[
-['🎯','Stop og kig','Stop et øjeblik og læg mærke til, hvad der sker.','👀 Stop og kig'],
-['📷','Skift kamera','Prøv at se den samme ting fra en anden vinkel.','📷 Skift kamera'],
-['🔎','Find 3 gode ting','Find tre små ting, der var gode i dag.','🔎 Godt-spotter'],
-['🕵️','Tanke-detektiv','En tanke kan føles sand uden at være et fakta.','🕵️ Tanke-detektiv'],
-['👹','Giv følelsen et navn','Et sjovt navn kan gøre en stærk følelse lettere at forstå.','👹 Giv den et navn'],
-['🛡️','10-sekunders skjold','Vent 10 sekunder, før du gør noget på autopilot.','🛡️ 10-sekunders skjold'],
-['🔄','Reset-knappen','Noget gik galt? Du kan starte igen.','🔄 Reset'],
-['👹','Boss: “Det går galt!”','Når hjernen råber fare, så find ét lille skridt, du kan tage.','🦁 Ét skridt nu'],
-['🧭','Hvad vil jeg egentlig?','Spørg dig selv, hvad du virkelig har lyst til lige nu.','🧭 Hvad vil jeg?'],
-['👣','Ét lille skridt','Gør noget svært så lille, at du kan komme i gang.','👣 Lille skridt'],
-['🔀','Plan B','Hvis første idé ikke virker, så find en anden.','🔀 Plan B'],
-['🛡️','Min mening tæller','Andre må mene noget. Du må også mene noget selv.','🛡️ Min mening'],
-['🧑','Gør det på din måde','Du behøver ikke gøre det samme som alle andre.','🧑 Min måde'],
-['🪤','Sammenligningsfælden','Opdag når du sammenligner dig og vælg, hvad du vil fokusere på.','🪤 Fang fælden'],
-['🤖','Autopilot-jæger','Opdag når du gør noget bare fordi du plejer.','🤖 Fang autopiloten'],
-['🎮','Vælg dit move','Brug PAUSE → CHECK → CHOOSE og vælg selv.','⚡ Choice Power'],
-['🎟️','Prøv igen-token','En fejl betyder ikke slut. Prøv igen på en ny måde.','🎟️ Prøv igen'],
-['🧑‍🏫','Din egen coach','Tal til dig selv som en god træner ville gøre.','🧑‍🏫 Coach-stemme'],
-['🧩','Del den op','Et stort problem bliver lettere, når du deler det i små bidder.','🧩 Mini-mission'],
-['🎛️','Kan jeg styre det?','Brug din energi på det, du faktisk kan gøre noget ved.','🎛️ Kontrol-check'],
-['⚡','Vælg en kraft','Vælg den kraft, der passer bedst lige nu.','⚡ Kraft-valg'],
-['⏳','Ikke endnu','Skift “Jeg kan ikke” til “Jeg kan ikke endnu”.','⏳ Ikke endnu'],
-['👑','Master of Choice','Brug flere af dine kræfter på samme dag.','👑 Master Choice']];
-const prompts=[
-'Kig rundt. Nævn 3 ting, du kan se eller høre lige nu.',
-'Tænk på noget irriterende. Hvad kunne en anden person have set i samme situation?',
-'Find 3 små gode ting fra i dag. Det må gerne være helt små ting.',
-'Fang én tanke. Er den et fakta, et gæt eller bare en tanke?',
-'Vælg en følelse eller lyst. Giv den et navn, fx Vrede-Monster eller Scroll-Monster.',
-'Næste gang du får lyst til noget med det samme: vent 10 sekunder. Vælg bagefter.',
-'Tænk på noget, der gik skævt. Hvad er dit næste lille move?',
-'Hvis hjernen siger “Det går galt!”, så spørg: “Hvad kan jeg gøre lige nu?”',
-'Spørg: “Hvad har jeg faktisk lyst til?” og “Har jeg stadig lyst om 10 minutter?”',
-'Vælg noget, du udskyder. Hvad er det mindste første skridt?',
-'Find to måder at løse det samme problem på.',
-'Tænk på noget, en anden har sagt om dig. Hvad mener du selv?',
-'Vælg én lille ting i dag, som du gør på din egen måde.',
-'Opdag én sammenligning. Hvad vil du hellere bruge din opmærksomhed på?',
-'Fang én ting, du begynder at gøre uden at tænke. Stop og vælg selv.',
-'Brug én gang i dag: 🛑 PAUSE → 🔎 CHECK → 🎮 CHOOSE.',
-'Hvis noget ikke virker: sig “nyt forsøg” og prøv én ting anderledes.',
-'Hvad ville en god coach sige til dig lige nu? Sig det til dig selv.',
-'Vælg én stor opgave og lav 3 mini-missioner.',
-'Vælg et problem. Hvad kan du styre? Hvad kan du ikke styre?',
-'Vælg dagens kraft: Fokus, Mod, Ro, Retning, Handling eller Choice Power.',
-'Fang et “Jeg kan ikke”. Skift det til “Jeg kan ikke endnu”.',
-'Brug mindst 3 kræfter i løbet af dagen. Hvilke hjalp dig mest?'];
-const situations={
-'😡 Jeg er virkelig sur':{scene:'Noget skete, og du kan mærke vreden i kroppen.',feel:['Jeg vil råbe eller svare igen','Det føles uretfærdigt','Jeg har brug for at komme væk et øjeblik','Jeg ved ikke helt hvorfor jeg er sur'],best:[4,5,6,15,17,19],moves:['Gå lidt væk og få ro først','Sig hvad der gjorde mig sur uden at råbe','Spørg om vi kan løse det','Jeg vil tænke lidt mere først']},
-'😟 Jeg tror noget går galt':{scene:'Din hjerne viser dig alt det, der måske kan gå galt.',feel:['Jeg tænker på det værste der kan ske','Jeg mærker det i maven','Jeg har lyst til at undgå det','Jeg ved ikke om tanken er sand'],best:[3,5,7,9,17,19,21],moves:['Find ét lille skridt jeg kan tage nu','Tjek om min tanke er fakta eller et gæt','Fortæl nogen hvordan jeg har det','Prøv alligevel, selv om jeg er nervøs']},
-'▶️ Jeg vil se én video mere':{scene:'Videoen er slut. Den næste er klar, og din finger vil næsten trykke selv.',feel:['Jeg vil virkelig gerne se én mere','Jeg keder mig','Den næste startede næsten af sig selv','Jeg ved ikke om jeg egentlig vil fortsætte'],best:[5,8,14,15],moves:['Se én mere, fordi jeg vælger det','Stoppe nu','Gøre noget andet','Vente 10 sekunder og vælge bagefter']},
-'🎮 Jeg vil ikke stoppe med at spille':{scene:'Det er tid til at stoppe, men spillet føles meget vigtigere lige nu.',feel:['Jeg er midt i noget','Jeg vil bare have én runde mere','Jeg bliver sur over at skulle stoppe','Jeg havde glemt tiden'],best:[4,5,8,14,15,19],moves:['Afslutte det jeg er i gang med og stoppe','Aftale præcis én sidste ting først','Stoppe nu og vælge noget andet','Sige roligt hvorfor det er svært at stoppe']},
-'🍪 Jeg har lyst til en snack':{scene:'Du ser eller tænker på noget lækkert og får lyst til at spise det.',feel:['Jeg er faktisk sulten','Jeg keder mig','Jeg er træt eller tørstig','Jeg har bare virkelig lyst til smagen','Jeg er ikke sikker'],best:[4,5,8,14,15],moves:['Spise noget, fordi jeg vælger det','Drikke noget og mærke efter igen','Vente lidt og se om lysten ændrer sig','Vælge noget andet at lave først']},
-'😞 Nogen sagde noget om mig':{scene:'Nogen sagde eller gjorde noget, som blev ved med at sidde i hovedet.',feel:['Jeg blev ked af det','Jeg blev sur','Jeg tænker måske de har ret','Jeg er mest bekymret for hvad de tænker'],best:[1,3,11,12,17,19],moves:['Tænke over hvad JEG selv mener','Sige fra på en rolig måde','Tale med en jeg stoler på','Lade deres mening blive hos dem']},
-'🪤 Jeg sammenligner mig':{scene:'En anden virker bedre, hurtigere, flottere eller dygtigere, og du begynder at måle dig selv.',feel:['Jeg føler mig dårligere','Jeg bliver misundelig','Jeg får lyst til at give op','Jeg glemmer det jeg selv er god til'],best:[2,11,12,13,17,20],moves:['Finde én ting jeg selv er blevet bedre til','Bruge den anden som inspiration','Flytte min opmærksomhed til mit eget mål','Minde mig selv om at mennesker er forskellige']},
-'💥 Jeg lavede en fejl':{scene:'Noget gik ikke som du ville. Måske har du lyst til at droppe det hele.',feel:['Jeg er irriteret på mig selv','Jeg er flov','Jeg tænker at jeg ikke kan finde ud af det','Jeg vil helst ikke prøve igen'],best:[6,9,10,16,17,18,21],moves:['Prøve igen på en lidt anden måde','Gøre opgaven mindre','Spørge om hjælp','Holde en pause og komme tilbage senere']},
-'🧗 Det er for svært':{scene:'Opgaven føles så stor, at det er svært overhovedet at begynde.',feel:['Jeg ved ikke hvor jeg skal starte','Der er for meget','Jeg er bange for at gøre det forkert','Jeg har bare ikke lyst'],best:[9,10,17,18,19,21],moves:['Gøre kun det mindste første skridt','Dele det i 3 mini-missioner','Spørge om hjælp til starten','Prøve i 5 minutter og se hvad der sker']},
-'👥 Jeg er bange for hvad andre tænker':{scene:'Du har lyst til noget, men en del af dig tænker meget på hvad andre vil synes.',feel:['Jeg vil ikke skille mig ud','Jeg er bange for at blive grinet af','Jeg ved egentlig godt hvad jeg selv vil','Jeg er ikke sikker på om det er min idé eller deres'],best:[8,11,12,13,15,20],moves:['Gøre det på min måde','Spørge mig selv hvad JEG faktisk vil','Lytte til deres mening og stadig vælge selv','Vente lidt før jeg beslutter mig']},
-'✈️ Jeg er nervøs for at flyve':{scene:'Du tænker på flyveturen, eller du sidder allerede i flyet og mærker nervøsiteten.',feel:['Min krop føles urolig','Jeg tænker på hvad der kan gå galt','Jeg vil gerne væk fra følelsen','Jeg kan godt være nervøs og stadig fortsætte'],best:[3,5,7,9,15,17,19,21],moves:['Trække vejret roligt og blive hvor jeg er','Tjekke om tanken er fakta eller frygt','Fokusere på det næste lille skridt','Lade nervøsiteten være der uden at kæmpe med den']},
-'🤷 Jeg ved ikke hvad jeg vil':{scene:'Der er flere muligheder, eller du gør bare det du plejer uden rigtigt at vælge.',feel:['Jeg gør bare det nemmeste','Jeg følger de andre','Jeg kan ikke mærke hvad jeg helst vil','Jeg vil flere ting på én gang'],best:[1,8,10,12,14,15,20],moves:['Spørge: Hvad vil jeg være glad for bagefter?','Find to muligheder og vælge mellem dem','Vente et øjeblik før jeg bestemmer mig','Vælge én ting og se hvordan det føles']}
+const $=id=>document.getElementById(id);
+const DATA_KEY='foodscanner_data_v1';
+const store={
+ data(){
+   try{
+     const saved=JSON.parse(localStorage.getItem(DATA_KEY));
+     if(saved && typeof saved==='object') return {meals:saved.meals||[],recipes:saved.recipes||[],settings:saved.settings||{},weights:saved.weights||[]};
+   }catch{}
+   // Migrate data from FoodScanner v0.1-v0.3 automatically.
+   let meals=[], recipes=[];
+   try{meals=JSON.parse(localStorage.getItem('meals'))||[]}catch{}
+   try{recipes=JSON.parse(localStorage.getItem('recipes'))||[]}catch{}
+   const data={meals,recipes,settings:{},weights:[]};
+   try{localStorage.setItem(DATA_KEY,JSON.stringify(data))}catch{}
+   return data;
+ },
+ get(k,d=[]){const data=this.data(); return data[k]??d},
+ set(k,v){const data=this.data(); data[k]=v; localStorage.setItem(DATA_KEY,JSON.stringify(data));}
 };
-const badgeDefs=[['👀','Super-observatør',1],['🕵️','Tanke-detektiv',4],['🛡️','Skjold-mester',6],['🤖','Autopilot-jæger',15],['⚡','Choice Master',16],['🦁','Mod-klatrer',22],['👑','Master of Choice',23]];
-const coords=[[12,91],[24,86],[37,83],[51,79],[64,75],[77,70],[66,65],[51,61],[37,58],[23,55],[13,50],[26,46],[41,43],[56,40],[72,36],[84,31],[72,27],[57,24],[43,20],[29,17],[17,13],[34,9],[55,5]];
-const zoneLabels=[['🌱 Start-øen',12,95],['🧠 Tankeskoven',8,66],['👹 Autopilot-hulen',62,52],['🦁 Mod-bjergene',10,29],['👑 Choice Castle',60,10]];
-function fresh(){return{xp:0,completed:[],missionWins:{},checkins:[],pin:'2310'}}let state=JSON.parse(localStorage.getItem('daniel23v5')||'null')||fresh();
-function save(){localStorage.setItem('daniel23v5',JSON.stringify(state));render()}
-function level(){if(state.xp>=1000)return['Level 6 — Master of Choice',1000];if(state.xp>=750)return['Level 5 — Adventure Hero',750];if(state.xp>=500)return['Level 4 — Choice Master',500];if(state.xp>=250)return['Level 3 — Modig eventyrer',250];if(state.xp>=100)return['Level 2 — Explorer',100];return['Level 1 — Ny eventyrer',0]}
-function nextThreshold(){return state.xp<100?100:state.xp<250?250:state.xp<500?500:state.xp<750?750:1000}
-function unlocked(i){return i===0||state.completed.includes(i-1)||state.completed.includes(i)}
-function mapSvg(){return `<svg viewBox="0 0 1000 1900" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb8d0"/><stop offset="1" stop-color="#477f9b"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".25"/></filter></defs><rect width="1000" height="1900" fill="url(#sea)"/><path d="M70 1600 C180 1490 350 1510 440 1600 C520 1680 430 1790 250 1815 C105 1835 30 1735 70 1600Z" fill="#86b95a" stroke="#d7dda7" stroke-width="10" filter="url(#shadow)"/><ellipse cx="210" cy="1665" rx="90" ry="55" fill="#6da04b"/><circle cx="120" cy="1570" r="18" fill="#3e7a42"/><circle cx="170" cy="1550" r="22" fill="#3e7a42"/><circle cx="320" cy="1700" r="24" fill="#3e7a42"/><path d="M120 1220 C170 1090 340 1030 500 1090 C650 1145 720 1260 630 1360 C530 1470 300 1460 160 1380 C80 1330 65 1280 120 1220Z" fill="#4d8a55" stroke="#c7d795" stroke-width="10" filter="url(#shadow)"/><g fill="#214f3f"><circle cx="210" cy="1210" r="32"/><circle cx="280" cy="1170" r="28"/><circle cx="370" cy="1215" r="36"/><circle cx="470" cy="1160" r="30"/><circle cx="560" cy="1260" r="34"/><circle cx="300" cy="1320" r="30"/><circle cx="440" cy="1340" r="28"/></g><path d="M560 790 C710 690 900 760 920 920 C940 1090 780 1180 630 1115 C520 1065 480 870 560 790Z" fill="#64566d" stroke="#a88bb3" stroke-width="10" filter="url(#shadow)"/><path d="M735 860 Q800 790 865 860 Q795 885 735 860Z" fill="#2a1f31"/><path d="M720 570 L830 335 L930 595 Z" fill="#805d45" stroke="#d0a470" stroke-width="10"/><path d="M570 650 L690 390 L800 665 Z" fill="#75523d" stroke="#d0a470" stroke-width="10"/><path d="M640 505 L690 390 L735 515 Z" fill="#eef4fa"/><path d="M790 455 L830 335 L875 465 Z" fill="#eef4fa"/><path d="M90 250 C170 120 360 85 500 170 C610 235 630 355 540 445 C430 555 215 510 120 420 C70 370 55 315 90 250Z" fill="#7faa58" stroke="#d4df9a" stroke-width="10" filter="url(#shadow)"/><rect x="400" y="105" width="155" height="120" rx="8" fill="#d6b06b" stroke="#6d4b2f" stroke-width="8"/><rect x="430" y="70" width="36" height="70" fill="#c89552" stroke="#6d4b2f" stroke-width="7"/><rect x="495" y="55" width="36" height="85" fill="#c89552" stroke="#6d4b2f" stroke-width="7"/><path d="M450 135 q28 -35 56 0 v90 h-56z" fill="#523b39"/><path d="M120 1720 C230 1660 300 1590 380 1505 S530 1360 590 1270 S720 1120 700 1010 S620 900 710 820 S805 700 775 610 S660 510 565 435 S470 320 495 205" fill="none" stroke="#f1d591" stroke-width="22" stroke-linecap="round" stroke-dasharray="22 16"/><path d="M120 1720 C230 1660 300 1590 380 1505 S530 1360 590 1270 S720 1120 700 1010 S620 900 710 820 S805 700 775 610 S660 510 565 435 S470 320 495 205" fill="none" stroke="#7e5d3d" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 28"/><g fill="#ffffff55"><circle cx="80" cy="760" r="35"/><circle cx="120" cy="740" r="25"/><circle cx="890" cy="1460" r="42"/><circle cx="840" cy="1490" r="30"/></g></svg>`}
-function render(){let lv=level(),next=nextThreshold();levelName.textContent=lv[0];xpText.textContent=`• ${state.xp} XP`;xpBar.style.width=Math.min(100,state.xp/next*100)+'%';let n=rules.findIndex((_,i)=>!state.completed.includes(i));heroText.textContent=n<0?'🏆 Du har lært alle 23 regler. Nu handler eventyret om at bruge dem i virkeligheden.':`Næste: Regel ${n+1} — ${rules[n][1]}`;
-map.innerHTML=mapSvg()+zoneLabels.map(z=>`<div class="zoneLabel" style="left:${z[1]}%;top:${z[2]}%">${z[0]}</div>`).join('')+`<div class="mapNote" style="left:67%;top:73%">🌉 Stien fortsætter over vandet</div>`+rules.map((r,i)=>{let d=state.completed.includes(i),u=unlocked(i),boss=[7,22].includes(i),c=coords[i];return `<button class="landmark ${d?'done':u?'current':'locked'} ${boss?'boss':''}" style="left:${c[0]}%;top:${c[1]}%" ${u?`onclick="openRule(${i})"`:''} aria-label="Regel ${i+1}: ${r[1]}"><div class="em">${d?'✅':u?r[0]:'🔒'}</div><div class="rn">${i+1}</div></button>`}).join('')+(n>=0?`<div class="danielMarker" style="left:${coords[n][0]}%;top:${coords[n][1]-3}%">🧑 Daniel</div>`:'');questRibbon.innerHTML=n<0?'🏆 <b>Alle 23 regler er klaret!</b> Prøv nu missionerne.':`🧑 Daniel er på vej til <b>Regel ${n+1}: ${rules[n][1]}</b>`;quickPowers.innerHTML=rules.filter((_,i)=>state.completed.includes(i)).slice(-6).map(r=>`<span class="power">${r[3]}</span>`).join('')||'<span class="tiny">Klar Regel 1 for at få din første kraft.</span>';
-powers.innerHTML=rules.map((r,i)=>`<span class="power ${state.completed.includes(i)?'':'locked'}">${state.completed.includes(i)?r[3]:'🔒 Regel '+(i+1)}</span>`).join('');missionCards.innerHTML=Object.keys(situations).map(k=>`<div class="card mode" onclick="openSituation('${k}')"><div class="bigpower">${k[0]}</div><h3>${k}</h3><p>${situations[k].scene}</p><span class="sub">Gennemført: ${state.missionWins[k]||0} gange</span></div>`).join('');badgeList.innerHTML=badgeDefs.map(b=>`<span class="badge ${state.completed.length>=b[2]?'':'locked'}">${b[0]} ${b[1]}</span>`).join('');checkHistory.innerHTML=state.checkins.slice().reverse().map(c=>`<div class="card" style="margin-top:10px"><b>${c.date}</b><p>${esc(c.text)}</p></div>`).join('')}
-function show(id,el){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');el.classList.add('active')}
-function continueJourney(){let i=rules.findIndex((_,i)=>!state.completed.includes(i));if(i<0)i=22;openRule(i)}
-function openRule(i){if(!unlocked(i))return;let r=rules[i];let challenge=i===15?`<div class="call"><b>Din vigtigste superkraft</b><br>🛑 PAUSE → 🔎 CHECK → 🎮 CHOOSE</div>`:`<div class="call"><b>Prøv kraften</b><br>${prompts[i]}</div>`;openSheet(`<div class="sub">LÆR EN NY KRAFT • ${i+1}/23</div><h2>${r[0]} ${r[1]}</h2><p class="scenario">${r[2]}</p>${challenge}<p>Du behøver ikke bevise noget. Prøv idéen én gang, og lås kraften op, når du forstår hvad den gør.</p><button class="btn primary" onclick="learnRule(${i})">✨ Jeg forstår kraften — lås den op</button><button class="btn secondary" onclick="closeSheet()">Ikke endnu</button>`)}
-function learnRule(i){if(!state.completed.includes(i)){state.completed.push(i);state.xp+=10}closeSheet();save();setTimeout(()=>openSheet(`<div style="text-align:center"><div class="bigpower">✨</div><h2>NY KRAFT!</h2><div class="bigpower">${rules[i][3]}</div><p>${rules[i][2]}</p><button class="btn primary" onclick="closeSheet()">Læg i min værktøjskasse</button></div>`),120)}
-function openSituation(name){let m=situations[name];openSheet(`<div class="sub">VIRKELIG SITUATION</div><h2>${name}</h2><div class="call scenario">${m.scene}</div><h3>🛑 Først: PAUSE</h3><p>Stop et øjeblik. Du skal ikke løse noget endnu.</p><button class="btn primary" onclick="situationCheck('${name}')">Jeg er klar →</button>`)}
-function situationCheck(name){let m=situations[name];openSheet(`<div class="sub">TRIN 2 AF 4</div><h2>🔎 Hvad sker der inde i dig?</h2><p>Der er ikke noget forkert svar. Vælg det der passer bedst.</p>${m.feel.map((x,i)=>`<button class="choice" onclick="situationPower('${name}',${i})">${x}</button>`).join('')}`)}
-function situationPower(name,feelIndex){let m=situations[name],avail=m.best.filter(i=>state.completed.includes(i));let buttons=avail.length?avail.map(i=>`<button class="choice" onclick="situationMove('${name}',${feelIndex},${i})">${rules[i][3]}<br><span class="tiny">${rules[i][2]}</span></button>`).join(''):`<button class="choice" onclick="situationMove('${name}',${feelIndex},-1)">⚡ Choice Power<br><span class="tiny">Stop, tænk og vælg dit eget næste move.</span></button>`;openSheet(`<div class="sub">TRIN 3 AF 4</div><h2>🧰 Hvilken kraft kan hjælpe?</h2><p>Du valgte: <b>${m.feel[feelIndex]}</b></p>${buttons}<p class="tiny">Kun kræfter du har låst op på kortet vises her.</p>`)}
-function situationMove(name,feelIndex,power){let m=situations[name];openSheet(`<div class="sub">TRIN 4 AF 4</div><h2>🎮 Hvad er dit næste move?</h2><p>${power>=0?'Du bruger <b>'+rules[power][3]+'</b>. ':' '}Du bestemmer. Der er ikke ét perfekt valg.</p>${m.moves.map((x,i)=>`<button class="choice" onclick="finishSituation('${name}',${power},${i})">${x}</button>`).join('')}<button class="choice" onclick="finishSituation('${name}',${power},-1)">✍️ Noget andet — jeg vælger selv</button>`)}
-function finishSituation(name,power,move){let m=situations[name];state.missionWins[name]=(state.missionWins[name]||0)+1;state.xp+=15;save();let chosen=move>=0?m.moves[move]:'Dit eget valg';openSheet(`<div style="text-align:center"><div class="bigpower">⚡</div><h2>Det var dit valg</h2><p><b>${chosen}</b></p><p>Du stoppede → mærkede efter → brugte en kraft → valgte dit næste move.</p>${power>=0?`<p>Brugt kraft: <b>${rules[power][3]}</b></p>`:''}<b>+15 XP</b><br><br><button class="btn primary" onclick="closeSheet()">Færdig</button></div>`)}
-function saveCheckin(){let t=checkText.value.trim();if(!t)return;state.checkins.push({date:new Date().toLocaleDateString('da-DK'),text:t});state.xp+=5;checkText.value='';save()}
-function openParent(){openSheet(`<h2>🔐 Forældre</h2><div class="field"><input id="pin" type="password" inputmode="numeric" placeholder="PIN"></div><button class="btn primary" onclick="unlockParent()">Åbn</button><p class="tiny">Standard-PIN: 2310</p>`)}
-function unlockParent(){if(document.getElementById('pin').value!==state.pin)return alert('Forkert PIN');openSheet(`<h2>🔐 Forældre</h2><div class="card"><b>Fremskridt</b><p>${state.completed.length}/23 regler • ${state.xp} XP</p><div class="row"><button class="btn secondary" onclick="exportData()">Eksportér backup</button><label class="btn secondary">Importér backup<input type="file" accept="application/json" hidden onchange="importData(event)"></label></div></div><div class="card" style="margin-top:10px"><b>PIN</b><div class="field"><input id="newPin" inputmode="numeric" placeholder="Ny PIN"></div><button class="btn secondary" onclick="changePin()">Skift PIN</button></div><button class="btn danger" style="margin-top:12px" onclick="resetAll()">Nulstil alt</button>`)}
-function exportData(){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(state,null,2)],{type:'application/json'}));a.download='daniel-adventure-progress.json';a.click()}
-function importData(e){let f=e.target.files[0];if(!f)return;let r=new FileReader;r.onload=()=>{try{state=JSON.parse(r.result);save();closeSheet()}catch{alert('Backup-filen kunne ikke læses')}};r.readAsText(f)}
-function changePin(){let p=document.getElementById('newPin').value.trim();if(p.length<4)return alert('Brug mindst 4 cifre');state.pin=p;save();closeSheet()}
-function resetAll(){if(confirm('Vil du nulstille hele Daniel’s Adventure?')){state=fresh();save();closeSheet()}}
-function openSheet(h){sheetBody.innerHTML=h;sheet.classList.add('open')}function closeSheet(){sheet.classList.remove('open')}function esc(s){return s.replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}render();if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js');
-</script></body></html>
+
+const photoStore={
+ db(){return new Promise((resolve,reject)=>{try{const r=indexedDB.open('foodscanner_photos_v1',1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains('photos'))r.result.createObjectStore('photos')};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)}catch(e){reject(e)}})},
+ async put(key,value){if(!key||!value)return false;try{const db=await this.db();return await new Promise((resolve,reject)=>{const tx=db.transaction('photos','readwrite');tx.objectStore('photos').put(value,key);tx.oncomplete=()=>resolve(true);tx.onerror=()=>reject(tx.error)})}catch{return false}},
+ async get(key){if(!key)return '';try{const db=await this.db();return await new Promise((resolve,reject)=>{const r=db.transaction('photos','readonly').objectStore('photos').get(key);r.onsuccess=()=>resolve(r.result||'');r.onerror=()=>reject(r.error)})}catch{return ''}},
+ async del(key){if(!key)return;try{const db=await this.db();await new Promise((resolve,reject)=>{const tx=db.transaction('photos','readwrite');tx.objectStore('photos').delete(key);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}catch{}},
+ async mealPhoto(m){if(m?.photo)return m.photo;if(m?.photoKey)return await this.get(m.photoKey);return ''}
+};
+function localDateKey(d=new Date()){
+ const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');
+ return `${y}-${m}-${day}`;
+}
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));$(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));if(id==='home')$('navHome').classList.add('active');if(id==='scan')$('navScan').classList.add('active');if(id==='today'||id==='track')$('navDiary').classList.add('active');if(id==='recipes'||id==='recipeView'||id==='recipeForm')$('navRecipes').classList.add('active');if(id==='recipes')renderRecipes();if(id==='today')renderToday();if(id==='track')renderTrack();if(id==='home')renderHome();window.scrollTo(0,0)}
+function toast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500)}
+let currentPhoto='';
+let currentAnalysis=null;
+function previewPhoto(e){
+ const f=e.target.files[0];if(!f)return;
+ if(!f.type.startsWith('image/')){toast('Please choose an image');return}
+ const reader=new FileReader();
+ reader.onload=ev=>{
+   const img=new Image();
+   img.onload=()=>{
+     const max=1600,scale=Math.min(1,max/Math.max(img.width,img.height));
+     const c=document.createElement('canvas');c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);
+     c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+     currentPhoto=c.toDataURL('image/jpeg',0.82);
+     $('preview').src=currentPhoto;$('preview').style.display='block';$('scanResult').classList.add('hidden');$('analysisStatus').textContent='';currentAnalysis=null;
+   };
+   img.src=ev.target.result;
+ };
+ reader.readAsDataURL(f)
+}
+function plateLabelForAI(v){return ({small:'small plate, about 20 cm diameter',medium:'medium plate, about 25 cm diameter',large:'large plate, about 30 cm diameter',bowl:'bowl; exact diameter unknown',unknown:'plate or container size unknown'})[v]||'unknown'}
+async function analyzeMeal(){
+ if(!currentPhoto){toast('Choose a meal photo first');return}
+ const btn=$('analyzeBtn');btn.disabled=true;btn.textContent='Analyzing…';$('analysisStatus').textContent='';$('spinnerWrap').classList.add('show');$('scanResult').classList.add('hidden');
+ try{
+   const res=await fetch('/.netlify/functions/analyze-food',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({image:currentPhoto,plateSize:$('plateSize').value,plateDescription:plateLabelForAI($('plateSize').value)})});
+   let data={};try{data=await res.json()}catch{}
+   if(!res.ok)throw new Error(data.error||`Analysis failed (${res.status})`);
+   currentAnalysis=data;renderAnalysis();$('analysisStatus').textContent='';
+ }catch(err){
+   console.error(err);$('analysisStatus').textContent=err.message.includes('404')?'AI function is not deployed yet. Upload the full v0.5 project folder to GitHub/Netlify.':err.message;toast('Could not analyze photo');
+ }finally{btn.disabled=false;btn.textContent='Analyze meal';$('spinnerWrap').classList.remove('show')}
+}
+function recalcAnalysis(){
+ if(!currentAnalysis)return;
+ const items=currentAnalysis.items||[];
+ currentAnalysis.calories=Math.round(items.reduce((a,i)=>a+(+i.kcal||0),0));
+ currentAnalysis.protein_g=items.reduce((a,i)=>a+(+i.p||0),0);
+ currentAnalysis.carbs_g=items.reduce((a,i)=>a+(+i.c||0),0);
+ currentAnalysis.fat_g=items.reduce((a,i)=>a+(+i.f||0),0);
+}
+function renderAnalysis(){
+ if(!currentAnalysis)return;recalcAnalysis();
+ $('scanMealName').textContent=currentAnalysis.meal_name||'Scanned meal';$('scanConfidence').textContent=`Confidence: ${currentAnalysis.confidence||'medium'}`;$('scanPlateInfo').textContent=plateLabel($('plateSize').value);
+ $('detectedList').innerHTML=(currentAnalysis.items||[]).map(i=>`<div class="detected"><b>${escapeHtml(i.name)} · ~${Math.round(+i.grams||0)} g · ${Math.round(+i.kcal||0)} kcal</b><small>${escapeHtml(i.info||'')}</small></div>`).join('')||'<div class="muted">No food items could be identified confidently.</div>';
+ $('scanTotalKcal').textContent=Math.round(currentAnalysis.calories||0)+' kcal';$('scanP').textContent=Math.round(currentAnalysis.protein_g||0)+' g';$('scanC').textContent=Math.round(currentAnalysis.carbs_g||0)+' g';$('scanF').textContent=Math.round(currentAnalysis.fat_g||0)+' g';
+ $('analysisEdit').innerHTML=(currentAnalysis.items||[]).map((i,idx)=>`<div class="card" style="padding:10px"><input class="field" value="${escapeAttr(i.name)}" oninput="updateAnalysisItem(${idx},'name',this.value)" placeholder="Food name"><div class="fields2" style="margin-top:8px"><input class="field" type="number" min="0" value="${Math.round(+i.grams||0)}" oninput="updateAnalysisItem(${idx},'grams',this.value)" placeholder="grams"><input class="field" type="number" min="0" value="${Math.round(+i.kcal||0)}" oninput="updateAnalysisItem(${idx},'kcal',this.value)" placeholder="kcal"></div><div class="fields2" style="margin-top:8px"><input class="field" type="number" min="0" step="0.1" value="${(+i.p||0).toFixed(1)}" oninput="updateAnalysisItem(${idx},'p',this.value)" placeholder="Protein g"><input class="field" type="number" min="0" step="0.1" value="${(+i.f||0).toFixed(1)}" oninput="updateAnalysisItem(${idx},'f',this.value)" placeholder="Fat g"></div><div style="margin-top:8px"><input class="field" type="number" min="0" step="0.1" value="${(+i.c||0).toFixed(1)}" oninput="updateAnalysisItem(${idx},'c',this.value)" placeholder="Carbs g"></div><button class="ghost danger" onclick="removeAnalysisItem(${idx})">Remove</button></div>`).join('')+`<button class="secondary" onclick="addAnalysisItem()">+ Add missing food</button>`;
+ $('scanResult').classList.remove('hidden')
+}
+function escapeHtml(v=''){return String(v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function escapeAttr(v=''){return escapeHtml(v).replace(/'/g,'&#39;')}
+function toggleAnalysisEdit(){$('analysisEdit').classList.toggle('hidden')}
+function updateAnalysisItem(idx,key,val){if(!currentAnalysis?.items?.[idx])return;currentAnalysis.items[idx][key]=['grams','kcal','p','c','f'].includes(key)?(+val||0):val;recalcAnalysis();$('detectedList').innerHTML=(currentAnalysis.items||[]).map(i=>`<div class="detected"><b>${escapeHtml(i.name||'Added food')} · ~${Math.round(+i.grams||0)} g · ${Math.round(+i.kcal||0)} kcal</b><small>${escapeHtml(i.info||'')}</small></div>`).join('')||'<div class="muted">No food items could be identified confidently.</div>';$('scanTotalKcal').textContent=Math.round(currentAnalysis.calories||0)+' kcal';$('scanP').textContent=Math.round(currentAnalysis.protein_g||0)+' g';$('scanC').textContent=Math.round(currentAnalysis.carbs_g||0)+' g';$('scanF').textContent=Math.round(currentAnalysis.fat_g||0)+' g'}
+function addAnalysisItem(){if(!currentAnalysis)currentAnalysis={meal_name:'Scanned meal',confidence:'medium',items:[]};currentAnalysis.items.push({name:'',grams:0,kcal:0,p:0,c:0,f:0,info:'Added manually'});renderAnalysis();$('analysisEdit').classList.remove('hidden');setTimeout(()=>{const inputs=$('analysisEdit').querySelectorAll('input');if(inputs.length)inputs[inputs.length-6]?.focus?.()},0)}
+function removeAnalysisItem(idx){currentAnalysis.items.splice(idx,1);renderAnalysis();$('analysisEdit').classList.remove('hidden')}
+async function saveAnalyzedMeal(){
+ if(!currentAnalysis){toast('Analyze the meal first');return}recalcAnalysis();
+ const detected=(currentAnalysis.items||[]).map(i=>({name:i.name||'Added food',qty:`~${Math.round(+i.grams||0)} g`,kcal:Math.round(+i.kcal||0),p:+i.p||0,c:+i.c||0,f:+i.f||0,info:i.info||''}));
+ const id=Date.now(),photoKey=`meal-${id}`;let embeddedPhoto='';
+ if(currentPhoto){const ok=await photoStore.put(photoKey,currentPhoto);if(!ok)embeddedPhoto=currentPhoto}
+ addMeal({id,name:currentAnalysis.meal_name||'Scanned meal',kcal:currentAnalysis.calories||0,p:currentAnalysis.protein_g||0,c:currentAnalysis.carbs_g||0,f:currentAnalysis.fat_g||0,source:'scan',photoKey:currentPhoto&&!embeddedPhoto?photoKey:'',photo:embeddedPhoto,plateSize:$('plateSize').value,detected,confidence:currentAnalysis.confidence,createdAt:new Date().toISOString()});
+ currentPhoto='';currentAnalysis=null;$('cameraPhoto').value='';$('galleryPhoto').value='';$('preview').style.display='none';$('scanResult').classList.add('hidden');$('analysisStatus').textContent='';toast('Scan saved with photo');showScreen('home')
+}
+function addMeal(m){const meals=store.get('meals',[]);m.id=m.id||Date.now();m.date=m.date||localDateKey();m.createdAt=m.createdAt||new Date().toISOString();meals.push(m);try{store.set('meals',meals)}catch(e){toast('Could not save meal data')}}
+function todayMeals(){const d=localDateKey();return store.get('meals',[]).filter(m=>m.date===d)}
+function hydrateMealImages(scope=document){scope.querySelectorAll('img[data-photo-key]').forEach(async img=>{if(img.dataset.loaded)return;const src=await photoStore.get(img.dataset.photoKey);if(src){img.src=src;img.style.display='block';img.dataset.loaded='1'}})}
+function mealThumbHtml(m,cls=''){const direct=m.photo?`src="${m.photo}" style="display:block"`:m.photoKey?`data-photo-key="${escapeAttr(m.photoKey)}"`:'';return `<div class="thumbWrap ${cls}"><span>🍽️</span><img ${direct} alt="${escapeAttr(m.name||'Meal photo')}"></div>`}
+function renderHome(){const ms=todayMeals().slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));const sum=ms.reduce((a,m)=>({k:a.k+(+m.kcal||0),p:a.p+(+m.p||0),c:a.c+(+m.c||0),f:a.f+(+m.f||0)}),{k:0,p:0,c:0,f:0});$('homeDate').textContent=new Date().toLocaleDateString([], {weekday:'long',month:'short',day:'numeric',year:'numeric'});$('homeKcalNum').textContent=Math.round(sum.k);$('homeP').textContent=Math.round(sum.p)+' g';$('homeC').textContent=Math.round(sum.c)+' g';$('homeF').textContent=Math.round(sum.f)+' g';const settings=store.get('settings',{}),target=+settings.calorieTarget||0,pct=target>0?Math.min(100,Math.max(0,sum.k/target*100)):0;$('homeRing').style.setProperty('--p',pct);$('homeTargetShort').textContent=target?`of ${target} kcal`:'kcal today';$('homeTargetTile').textContent=target?`${target} kcal`:'Not set';if(target>0){const rem=Math.round(target-sum.k);$('homeRemaining').textContent=rem>=0?`${rem} kcal`:`+${Math.abs(rem)} kcal`;$('homeGoalText').textContent=rem>=0?'remaining today':'over daily target';}else{$('homeRemaining').textContent='—';$('homeGoalText').textContent='Set your daily target';}
+ const ws=store.get('weights',[]).slice().sort((a,b)=>a.date.localeCompare(b.date)),latest=ws[ws.length-1],first=ws[0];$('homeWeight').textContent=latest?`${latest.value.toFixed(1)} kg`:'—';$('homeWeightTrend').textContent=latest&&first&&latest.id!==first.id?`${latest.value-first.value>=0?'+':''}${(latest.value-first.value).toFixed(1)} kg since ${new Date(first.date+'T12:00:00').toLocaleDateString([], {month:'short',day:'numeric'})}`:'Add weight';
+ const h=$('homeTodayMeals');h.innerHTML=ms.length?ms.map(m=>`<div class="homeMeal">${mealThumbHtml(m)}<div><b>${escapeHtml(m.name)}</b><div class="muted" style="font-size:12px">${m.createdAt?new Date(m.createdAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}):''}</div></div><div style="font-weight:800">${Math.round(+m.kcal||0)} kcal</div></div>`).join(''):'<div class="empty">No meals yet.</div>';hydrateMealImages(h);const all=store.get('meals',[]),rs=store.get('recipes',[]);$('savedStatus').textContent=`Saved on this device: ${all.length} meal${all.length===1?'':'s'} · ${rs.length} recipe${rs.length===1?'':'s'}`}
+
+function addIngredient(data={}){const row=document.createElement('div');row.className='card';row.style.padding='12px';row.innerHTML=`<div class="ingredient"><input class="field ingName" placeholder="Ingredient" value="${data.name||''}"><input class="field ingQty" type="number" min="0" placeholder="g" value="${data.qty||''}"><button onclick="this.closest('.card').remove()">×</button></div><div class="fields2"><input class="field ingKcal" type="number" min="0" placeholder="kcal" value="${data.kcal||''}"><input class="field ingP" type="number" min="0" step="0.1" placeholder="Protein g" value="${data.p||''}"></div><div class="fields2" style="margin-top:8px"><input class="field ingC" type="number" min="0" step="0.1" placeholder="Carbs g" value="${data.c||''}"><input class="field ingF" type="number" min="0" step="0.1" placeholder="Fat g" value="${data.f||''}"></div>`;$('ingredients').appendChild(row)}
+function resetRecipeForm(){$('recipeName').value='';$('servings').value=4;$('cookedWeight').value='';$('ingredients').innerHTML='';addIngredient();addIngredient()}
+function saveRecipe(){const name=$('recipeName').value.trim();if(!name){toast('Add a recipe name');return}const servings=Math.max(1,+$('servings').value||1);const rows=[...$('ingredients').querySelectorAll('.card')];const ingredients=rows.map(r=>({name:r.querySelector('.ingName').value.trim(),qty:+r.querySelector('.ingQty').value||0,kcal:+r.querySelector('.ingKcal').value||0,p:+r.querySelector('.ingP').value||0,c:+r.querySelector('.ingC').value||0,f:+r.querySelector('.ingF').value||0})).filter(x=>x.name);if(!ingredients.length){toast('Add at least one ingredient');return}const recipes=store.get('recipes',[]);recipes.push({id:Date.now(),name,servings,cookedWeight:+$('cookedWeight').value||0,ingredients});store.set('recipes',recipes);toast('Recipe saved');showScreen('recipes')}
+function recipeTotals(r){return r.ingredients.reduce((a,i)=>({k:a.k+i.kcal,p:a.p+i.p,c:a.c+i.c,f:a.f+i.f}),{k:0,p:0,c:0,f:0})}
+function renderRecipes(){const rs=store.get('recipes',[]);const box=$('recipeList');if(!rs.length){box.innerHTML='<div class="card empty">No recipes yet.<br><button class="ghost" onclick="showScreen(\'recipeForm\');resetRecipeForm()">Add your first recipe</button></div>';return}box.innerHTML='';rs.forEach(r=>{const t=recipeTotals(r), per=t.k/r.servings;const c=document.createElement('div');c.className='card recipeCard';c.innerHTML=`<div onclick="openRecipe(${r.id})" style="flex:1"><b>${r.name}</b><div class="meta">${Math.round(per)} kcal per serving · ${r.servings} servings</div></div><span class="tag">Saved</span>`;box.appendChild(c)})}
+function openRecipe(id){const r=store.get('recipes',[]).find(x=>x.id===id);if(!r)return;const t=recipeTotals(r);$('recipeViewContent').innerHTML=`<div class="card"><h2 style="margin-top:0">${r.name}</h2><div class="muted">${r.servings} servings${r.cookedWeight?` · ${r.cookedWeight} g cooked`:''}</div><div class="macro"><div class="pill">Calories<b>${Math.round(t.k/r.servings)}</b></div><div class="pill">Protein<b>${(t.p/r.servings).toFixed(1)} g</b></div><div class="pill">Carbs<b>${(t.c/r.servings).toFixed(1)} g</b></div><div class="pill">Fat<b>${(t.f/r.servings).toFixed(1)} g</b></div></div><label>Amount eaten</label><select id="portion" class="field"><option value="0.5">½ serving</option><option value="1" selected>1 serving</option><option value="1.5">1½ servings</option><option value="2">2 servings</option></select><div style="height:12px"></div><button class="primary" onclick="addRecipeMeal(${r.id})">Add to today</button><div style="height:8px"></div><button class="secondary danger" onclick="deleteRecipe(${r.id})">Delete recipe</button></div><div class="sectionTitle"><h3>Ingredients</h3></div><div class="card">${r.ingredients.map(i=>`<div class="row"><div><b>${i.name}</b><small>${i.qty?i.qty+' g':''}</small></div><div>${Math.round(i.kcal)} kcal</div></div>`).join('')}</div>`;showScreen('recipeView')}
+function addRecipeMeal(id){const r=store.get('recipes',[]).find(x=>x.id===id);const mult=+$('portion').value||1;const t=recipeTotals(r);addMeal({name:r.name,kcal:t.k/r.servings*mult,p:t.p/r.servings*mult,c:t.c/r.servings*mult,f:t.f/r.servings*mult,source:'recipe'});toast('Added to today');showScreen('home')}
+function deleteRecipe(id){store.set('recipes',store.get('recipes',[]).filter(r=>r.id!==id));toast('Recipe deleted');showScreen('recipes')}
+function plateLabel(v){return ({small:'Small plate · ~20 cm',medium:'Medium plate · ~25 cm',large:'Large plate · ~30 cm',bowl:'Bowl',unknown:'Plate size unknown'})[v]||''}
+function formatStamp(v){if(!v)return '';try{return new Date(v).toLocaleString([], {dateStyle:'medium',timeStyle:'short'})}catch{return v}}
+async function deleteMeal(id){if(!confirm('Delete this saved meal?'))return;const meals=store.get('meals',[]),m=meals.find(x=>x.id===id);if(m?.photoKey)await photoStore.del(m.photoKey);store.set('meals',meals.filter(x=>x.id!==id));renderToday();renderHome();toast('Meal deleted')}
+async function renderToday(){const ms=store.get('meals',[]).slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));const box=$('todayList');if(!ms.length){box.innerHTML='<div class="card empty">No saved meals yet.</div>';return}const groups={};ms.forEach(m=>(groups[m.date]??=[]).push(m));box.innerHTML=Object.entries(groups).map(([date,items])=>{const dayTotal=Math.round(items.reduce((a,m)=>a+(+m.kcal||0),0)),label=date===localDateKey()?'Today':new Date(date+'T12:00:00').toLocaleDateString([], {weekday:'short',month:'short',day:'numeric'});return `<div class="historyGroup"><div class="historyHeader"><h3>${label}</h3><div class="historyDayTotal">${dayTotal} kcal</div></div>${items.map(m=>{const time=m.createdAt?new Date(m.createdAt).toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'}):'';const source=m.source==='recipe'?'Saved recipe':'Food scan';const details=(m.detected||[]).map(i=>`<div class="historyDetected"><b>${escapeHtml(i.name)} · ${escapeHtml(i.qty||'')} · ${Math.round(+i.kcal||0)} kcal</b>${i.info?`<small>${escapeHtml(i.info)}</small>`:''}</div>`).join('');const direct=m.photo?`src="${m.photo}" style="display:block"`:m.photoKey?`data-photo-key="${escapeAttr(m.photoKey)}"`:'';return `<details class="historyMeal"><summary><div class="historySummary">${mealThumbHtml(m)}<div><div class="name">${escapeHtml(m.name)}</div><div class="meta">${time} · ${source}</div></div><div class="historyKcal">${Math.round(+m.kcal||0)} kcal<span class="chev">›</span></div></div></summary><div class="historyBody"><img class="fullPhoto" ${direct} alt="${escapeAttr(m.name||'Meal photo')}"><div class="historyMacros"><div class="historyMacro">Protein · Б<b>${Math.round(+m.p||0)} g</b></div><div class="historyMacro">Fat · Ж<b>${Math.round(+m.f||0)} g</b></div><div class="historyMacro">Carbs · У<b>${Math.round(+m.c||0)} g</b></div></div><div class="muted" style="font-size:12px;margin-bottom:8px">${formatStamp(m.createdAt)}${m.plateSize?' · '+plateLabel(m.plateSize):''}${m.confidence?' · AI confidence: '+escapeHtml(m.confidence):''}</div>${details||'<div class="muted" style="font-size:13px">No item-by-item details saved for this meal.</div>'}<div style="height:8px"></div><button class="ghost danger" onclick="deleteMeal(${m.id})">Delete meal</button></div></details>`}).join('')}</div>`}).join('');hydrateMealImages(box);box.querySelectorAll('details.historyMeal').forEach(d=>d.addEventListener('toggle',()=>{if(d.open){d.querySelectorAll('img[data-photo-key]').forEach(async img=>{if(img.dataset.loaded)return;const src=await photoStore.get(img.dataset.photoKey);if(src){img.src=src;img.style.display='block';img.dataset.loaded='1'}});const full=d.querySelector('.fullPhoto');if(full&&full.getAttribute('src'))full.style.display='block'}}));box.querySelectorAll('.fullPhoto[src]').forEach(i=>i.style.display='block')}
+
+function saveCalorieTarget(){const v=Math.max(0,Math.round(+$('calorieTarget').value||0));const settings=store.get('settings',{});settings.calorieTarget=v;store.set('settings',settings);toast(v?'Calorie target saved':'Calorie target cleared');renderTrack();renderHome()}
+function addWeightEntry(){const date=$('weightDate').value||localDateKey(),value=+$('weightValue').value;if(!value||value<20||value>400){toast('Enter a valid weight');return}let ws=store.get('weights',[]);const existing=ws.findIndex(w=>w.date===date);const row={id:existing>=0?ws[existing].id:Date.now(),date,value:Math.round(value*10)/10,createdAt:new Date().toISOString()};if(existing>=0)ws[existing]=row;else ws.push(row);ws.sort((a,b)=>a.date.localeCompare(b.date));store.set('weights',ws);$('weightValue').value='';toast(existing>=0?'Weight updated':'Weight saved');renderTrack()}
+function deleteWeight(id){store.set('weights',store.get('weights',[]).filter(w=>w.id!==id));renderTrack();toast('Weight entry deleted')}
+function renderWeightChart(ws){const box=$('weightChartBox');if(!ws.length){box.innerHTML='<div class="muted" style="font-size:13px">Add your first weight entry to start the trend.</div>';return}const recent=ws.slice(-30);if(recent.length===1){box.innerHTML=`<div class="miniStat"><div class="muted">Current weight</div><b>${recent[0].value.toFixed(1)} kg</b></div>`;return}const vals=recent.map(w=>w.value),min=Math.min(...vals),max=Math.max(...vals),pad=Math.max(0.5,(max-min)*0.2),lo=min-pad,hi=max+pad,w=460,h=140,left=10,right=10,top=10,bottom=20;const x=i=>left+(i/(recent.length-1))*(w-left-right),y=v=>top+(hi-v)/(hi-lo)*(h-top-bottom);const pts=recent.map((r,i)=>`${x(i)},${y(r.value)}`).join(' ');const grid=[0,.5,1].map(t=>{const yy=top+t*(h-top-bottom);return `<line class="weightGrid" x1="${left}" x2="${w-right}" y1="${yy}" y2="${yy}"/>`}).join('');const circles=recent.map((r,i)=>`<circle class="weightPoint" cx="${x(i)}" cy="${y(r.value)}" r="3.5"/>`).join('');box.innerHTML=`<svg class="weightChart" viewBox="0 0 ${w} ${h}" role="img" aria-label="Weight trend">${grid}<polyline class="weightLine" points="${pts}"/>${circles}<text x="${left}" y="${h-3}" font-size="11" fill="#6d766f">${recent[0].date}</text><text x="${w-right}" y="${h-3}" text-anchor="end" font-size="11" fill="#6d766f">${recent[recent.length-1].date}</text></svg>`}
+function renderTrack(){const ms=todayMeals(),sum=Math.round(ms.reduce((a,m)=>a+(+m.kcal||0),0)),settings=store.get('settings',{}),target=+settings.calorieTarget||0;$('trackConsumed').textContent=sum;$('trackTarget').textContent=target||'—';$('calorieTarget').value=target||'';let pct=0;if(target>0){pct=Math.min(100,Math.max(0,sum/target*100));const rem=target-sum;$('trackRemaining').textContent=rem>=0?`${Math.round(rem)} kcal remaining`:`${Math.abs(Math.round(rem))} kcal over target`;$('trackPercent').textContent=`${Math.round(sum/target*100)}%`;}else{$('trackRemaining').textContent='Set a target below';$('trackPercent').textContent='';}$('trackGoalFill').style.width=pct+'%';const ws=store.get('weights',[]).slice().sort((a,b)=>a.date.localeCompare(b.date));$('weightDate').value=$('weightDate').value||localDateKey();const latest=ws[ws.length-1];$('currentWeightTag').textContent=latest?`${latest.value.toFixed(1)} kg`:'No entries';renderWeightChart(ws);const list=$('weightList');if(!ws.length){list.innerHTML='';return}list.innerHTML=ws.slice().reverse().slice(0,12).map(w=>`<div class="row"><div><b>${w.value.toFixed(1)} kg</b><small>${new Date(w.date+'T12:00:00').toLocaleDateString([], {dateStyle:'medium'})}</small></div><button class="ghost danger" onclick="deleteWeight(${w.id})">Delete</button></div>`).join('')}
+
+async function exportBackup(){const data=store.data(),photos={};for(const m of data.meals||[]){const src=await photoStore.mealPhoto(m);if(src)photos[String(m.id)]=src}const blob=new Blob([JSON.stringify({app:'FoodScanner',version:3,exportedAt:new Date().toISOString(),...data,photos},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`foodscanner-backup-${localDateKey()}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('Backup exported')}
+function importBackup(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=async ev=>{try{const d=JSON.parse(ev.target.result);if(!Array.isArray(d.meals)||!Array.isArray(d.recipes))throw new Error();if(!confirm(`Import ${d.meals.length} meals and ${d.recipes.length} recipes? This will replace data saved in this browser.`))return;const meals=d.meals.map(m=>({...m,photo:''}));for(const m of meals){const src=d.photos?.[String(m.id)]||d.meals.find(x=>x.id===m.id)?.photo||'';if(src){m.photoKey=m.photoKey||`meal-${m.id}`;const ok=await photoStore.put(m.photoKey,src);if(!ok)m.photo=src}}localStorage.setItem(DATA_KEY,JSON.stringify({meals,recipes:d.recipes,settings:d.settings||{},weights:Array.isArray(d.weights)?d.weights:[]}));renderHome();renderToday();toast('Backup restored')}catch{toast('This is not a valid FoodScanner backup')}finally{e.target.value=''}};r.readAsText(f)}
+resetRecipeForm();$('weightDate').value=localDateKey();renderHome();
+</script>
+</body>
+</html>
